@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'pages/index'
+  devise_for :mentors
+  root 'pages#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users

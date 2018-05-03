@@ -1,8 +1,9 @@
-class Course < ApplicationRecord
-  belongs_to :course_category
-  has_many :tasks
+class Task < ApplicationRecord
+  belongs_to :course
+
   validates :title, presence: true
   validates :description, presence: true
+  validates :body, presence: true
 
   mount_uploader :image, CoverUploader
 end
