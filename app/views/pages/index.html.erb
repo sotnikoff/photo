@@ -1,2 +1,21 @@
 <h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+
+<h3>Courses</h3>
+
+<ul>
+  <% @categories.each do |cat| %>
+    <li><%= cat.title %> (<%= cat.description %>)</li>
+    <ul>
+      <% cat.courses.each do |course| %>
+        <li>
+          <%= course.title %>
+          <ul>
+            <% course.tasks.each do |task| %>
+              <li><%= task.title %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
