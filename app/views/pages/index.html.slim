@@ -1,0 +1,14 @@
+h1 Pages#index
+h3 Courses
+ul
+  - @categories.each do |cat|
+    li
+      = cat.title
+      | (#{cat.description})
+    ul
+      - cat.courses.each do |course|
+        li
+          = course.title
+          ul
+            - course.tasks.each do |task|
+              li= task.title
