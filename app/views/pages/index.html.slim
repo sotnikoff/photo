@@ -1,0 +1,7 @@
+- @categories.each do |category|
+  .course
+    .jumbotron
+      h1.display-4= category.title
+      p.lead= category.description
+      hr.my-4
+      =link_to 'Просмотреть все курсы', course_category_path(category), class: 'btn btn-primary btn-lg', role: 'button'
