@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_04_114430) do
+ActiveRecord::Schema.define(version: 2018_05_04_195719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2018_05_04_114430) do
   end
 
   create_table "homeworks", force: :cascade do |t|
-    t.string "image"
     t.text "user_comment"
     t.text "mentor_review"
     t.bigint "user_task_id"
