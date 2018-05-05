@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
     title= @page_title || 'Photo'
     = csrf_meta_tags
     = csp_meta_tag
@@ -10,5 +10,11 @@ html
   body
     .container
       .row
-        .col-md-12 id=('main-container')
+        .col-md-12 id='auth'
+          - if current_user
+            =link_to 'log out', destroy_user_session_path, method: :delete
+          - else
+            =link_to 'log in', new_user_session_path
+      .row
+        .col-md-12 id='main-container'
           = yield
