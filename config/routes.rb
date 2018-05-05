@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   get '/my', to: 'pages#my'
-  resources :course_categories, only: %i(index show)
+  resources :course_categories, only: %i[index show]
+  resources :courses, only: %i[index show]
+  resources :homeworks, only: %i[create]
   scope 'my' do
-    resources :user_tasks, only: %i(show)
+    resources :user_tasks, only: %i[show]
   end
 end

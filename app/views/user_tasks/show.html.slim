@@ -1,3 +1,18 @@
 h1= @user_task.task.title
+h3 Task description
 div.task-content
   = @user_task.task.body
+h3 Homework
+- @user_task.homeworks.each do |home|
+  .row
+    .col-md-2
+      = home.user_comment
+    .col-md-2
+      = home.mentor_review
+.row
+  .col-md-12
+    h5 Upload homework
+    = form_tag(homeworks_path) do
+      = text_area_tag :homework_user_comment
+      = hidden_field_tag :homework_user_task_id, @user_task.id
+      = submit_tag 'Send'
