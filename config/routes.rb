@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#index'
-  get '/my', to: 'pages#my'
+  get '/my', to: 'pages#my', as: 'my'
   resources :course_categories, only: %i[index show]
   resources :courses, only: %i[index show]
   resources :homeworks, only: %i[create]

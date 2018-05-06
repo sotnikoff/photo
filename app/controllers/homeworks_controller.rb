@@ -4,7 +4,7 @@ class HomeworksController < ApplicationController
     home = Homework.new(user_comment: params[:homework_user_comment],
                         user_task_id: params[:homework_user_task_id])
     if check_user(params[:homework_user_task_id]) && home.save
-      redirect_to root_path
+      redirect_to user_task_path(params[:homework_user_task_id])
     end
   end
 
