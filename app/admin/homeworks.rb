@@ -5,7 +5,7 @@ ActiveAdmin.register Homework do
     f.semantic_errors
     f.inputs
     inputs 'Attachments' do
-      input :picture, as: :file
+      input :picture, as: :file, input_html: { multiple: true }
     end
     f.actions
   end

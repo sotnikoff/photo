@@ -1,4 +1,7 @@
 h1= @course.title
+= image_tag(@course.picture.variant(combine_options: { resize: '440',
+        gravity: 'center', extent: '300x300' })) if @course.picture.attached?
+h3 Course tasks
 ul
   - @course.tasks.each do |task|
     li= task.title

@@ -4,5 +4,5 @@ class Course < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
-  mount_uploader :image, CoverUploader
+  has_one_attached :picture
 end

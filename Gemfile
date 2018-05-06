@@ -36,7 +36,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'activeadmin'
 gem 'aws-sdk-s3', require: false
-gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'pg'
 gem 'slim'
