@@ -1,4 +1,4 @@
 class Homework < ApplicationRecord
   belongs_to :user_task
-  has_one_attached :picture
+  has_many_attached :picture
 end

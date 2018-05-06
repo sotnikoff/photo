@@ -6,5 +6,6 @@ class Task < ApplicationRecord
   validates :description, presence: true
   validates :body, presence: true
 
-  mount_uploader :image, CoverUploader
+  has_one_attached :picture
+  has_many_attached :materials
 end

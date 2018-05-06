@@ -1,4 +1,6 @@
 h1= @course_category.title
+= image_tag(@course_category.picture.variant(combine_options: { resize: '440',
+        gravity: 'center', extent: '300x300' })) if @course_category.picture.attached?
 h3 Курсы категории
 ul
   -@course_category.courses.each do |course|
