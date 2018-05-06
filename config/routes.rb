@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :mentors
-  root 'pages#index'
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  devise_for :mentors
+  devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
 
-  resources :course_categories, only: %i(index show)
+  root 'pages#index'
+  get '/my', to: 'pages#my', as: 'my'
+  resources :course_categories, only: %i[index show]
+  resources :courses, only: %i[index show]
+  resources :homeworks, only: %i[create]
+  scope 'my' do
+    resources :user_tasks, only: %i[show]
+  end
 end

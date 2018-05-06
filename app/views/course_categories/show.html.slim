@@ -2,4 +2,4 @@ h1= @course_category.title
 h3 Курсы категории
 ul
   -@course_category.courses.each do |course|
-    li= course.title
+    li= link_to course.title, course_path(course)

@@ -1,0 +1,4 @@
+h1= @course.title
+ul
+  - @course.tasks.each do |task|
+    li= task.title
