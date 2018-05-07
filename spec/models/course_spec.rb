@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Course, type: :model do
-  before(:each) do
-    @course_category = CourseCategory.create(title: 'Hello', description: 'Test')
-  end
+  let(:course_category) { create :course_category }
 
   it 'is valid when all attributes are provided' do
-    course = Course.new(title: 'Hello', description: 'Test', course_category: @course_category)
+    course = Course.new(title: 'Hello', description: 'Test', course_category: course_category)
     expect(course).to be_valid
   end
 
