@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_06_154414) do
+ActiveRecord::Schema.define(version: 2018_05_09_125746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(version: 2018_05_06_154414) do
     t.boolean "done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mentor_id"
+    t.index ["mentor_id"], name: "index_user_tasks_on_mentor_id"
     t.index ["task_id"], name: "index_user_tasks_on_task_id"
     t.index ["user_id"], name: "index_user_tasks_on_user_id"
   end
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 2018_05_06_154414) do
   add_foreign_key "courses", "course_categories"
   add_foreign_key "homeworks", "user_tasks"
   add_foreign_key "tasks", "courses"
+  add_foreign_key "user_tasks", "mentors"
   add_foreign_key "user_tasks", "tasks"
   add_foreign_key "user_tasks", "users"
 end

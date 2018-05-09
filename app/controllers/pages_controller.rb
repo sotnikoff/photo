@@ -8,7 +8,9 @@ class PagesController < ApplicationController
 
   def my; end
 
-  def mentor_area; end
+  def mentor_area
+    @user_tasks = UserTask.where(mentor: current_mentor)
+  end
 
   private
 
