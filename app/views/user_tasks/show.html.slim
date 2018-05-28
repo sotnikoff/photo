@@ -1,7 +1,7 @@
 h1= @user_task.task.title
 h3 Task description
 div.task-content
-  = @user_task.task.body
+  = md2html(@user_task.task.body)
 h3 Homework
 - @user_task.homeworks.each do |homework|
   .row

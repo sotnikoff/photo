@@ -38,6 +38,7 @@ gem 'activeadmin'
 gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'pg'
+gem 'redcarpet'
 gem 'slim'
 
 source 'https://rails-assets.org' do
