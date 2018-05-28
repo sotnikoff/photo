@@ -5,16 +5,18 @@ html
     title= @page_title || 'Photo'
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   body
     .container
       .row
         .col-md-12 id='auth'
           - if current_user
             = link_to 'log out', destroy_user_session_path, method: :delete
-            |
             = link_to 'my personal area', my_path
+          - elsif current_mentor
+            = link_to 'log out', destroy_mentor_session_path, method: :delete
+            = link_to 'my mentor area', mentor_area_path
           - else
             = link_to 'log in', new_user_session_path
       .row

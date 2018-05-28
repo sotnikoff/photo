@@ -1,18 +1,27 @@
 h1= @user_task.task.title
 h3 Task description
 div.task-content
-  = @user_task.task.body
+  = md2html(@user_task.task.body)
 h3 Homework
-- @user_task.homeworks.each do |home|
+- @user_task.homeworks.each do |homework|
   .row
     .col-md-2
-      = home.user_comment
+      = homework.user_comment
     .col-md-2
-      = home.mentor_review
+      = homework.mentor_review
+    .col-md-2
+      - homework.pictures.each do |pic|
+        = image_tag pic
 .row
   .col-md-12
     h5 Upload homework
-    = form_tag(homeworks_path) do
-      = text_area_tag :homework_user_comment
-      = hidden_field_tag :homework_user_task_id, @user_task.id
-      = submit_tag 'Send'
+    = form_for(@homework, multipart: true) do |f|
+      .form-group
+        = f.label :user_comment, 'Отчет о выполненной работе'
+        = f.text_area :user_comment, class: 'form-control'
+      .form-group
+        .custom-file
+          = f.file_field :pictures, class: 'custom-file-input', multiple: true
+          = f.label :pictures, 'Домашняя работа', class: 'custom-file-label'
+      = f.hidden_field :user_task_id
+      = f.submit 'Upload homework', class: 'btn btn-outline-success'

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   get '/my', to: 'pages#my', as: 'my'
+  get '/mentor_area', to: 'pages#mentor_area', as: 'mentor_area'
   resources :course_categories, only: %i[index show]
   resources :courses, only: %i[index show]
   resources :homeworks, only: %i[create]

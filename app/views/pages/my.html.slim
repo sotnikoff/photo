@@ -2,5 +2,5 @@ h1 Personal#index
 h3 My tasks
 - @user_tasks.each do |user_task|
   p
-    = link_to user_task.task.title, user_task_path(user_task.task)
+    = link_to user_task.task.title, user_task_path(user_task.id)
     |  (#{link_to user_task.task.course.title, course_path(user_task.task.course)})
