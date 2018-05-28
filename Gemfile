@@ -40,6 +40,7 @@ gem 'devise'
 gem 'pg'
 gem 'redcarpet'
 gem 'slim'
+gem 'webpacker', '~> 3.5'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
